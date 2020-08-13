@@ -17,18 +17,18 @@ class PostsController extends Controller
                     ->select('posts.*', 'users.name AS user_name')
                     ->orderBy('id', 'desc')
                     ->get();
-        return view('question3.pages.main', compact('allPosts'));
+        return view('topic3_database.pages.main', compact('allPosts'));
     }
     public function getDetailPost($id)
     {
         $post = Post::find($id);
         $user = User::find($post->user_id);
-        return view('question3.pages.detail_post', compact('post','user'));
+        return view('topic3_database.pages.detail_post', compact('post','user'));
     }
     public function getEditPost($id)
     {
         $post = Post::find($id);
-        return view('question3.pages.edit_post', compact('post'));
+        return view('topic3_database.pages.edit_post', compact('post'));
     }
     public function deletePost($id)
     {
@@ -48,7 +48,7 @@ class PostsController extends Controller
                     ->select('posts.*', 'users.name AS user_name')
                     ->where('posts.user_id', '=', Auth::user()->id)
                     ->get();
-        return view('question3.pages.posts_by_me', compact('allPosts'));
+        return view('topic3_database.pages.posts_by_me', compact('allPosts'));
     }
     public function createPost(Request $request)
     {

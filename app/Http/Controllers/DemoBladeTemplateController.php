@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class DemoBladeTemplateController extends Controller
 {
     public function index(){
-        return view('question2.pages.main');
+        return view('topic2_component.pages.main');
     }
 }

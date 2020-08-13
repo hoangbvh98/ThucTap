@@ -1,5 +1,5 @@
 
-@extends('question3.index')
+@extends('topic3_database.index')
 @section('content')
 <div class="container" style="margin-top:30px">
     <h2>Bản tin của tôi</h2>

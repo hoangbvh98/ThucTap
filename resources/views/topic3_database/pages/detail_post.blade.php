@@ -1,5 +1,5 @@
 
-@extends('question3.index')
+@extends('topic3_database.index')
 @section('content')
 <div class="container" style="margin-top:30px">
     <div class="post-item">
@@ -14,6 +14,6 @@
     <h3>Bình Luận</h3>
     <br>
     <input type="hidden" id="post-id" value="{{$post->id}}">
-    @include('question3.layouts.comments')
+    @include('topic3_database.layouts.comments')
 </div>
 @endsection

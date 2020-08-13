@@ -1,5 +1,5 @@
 
-@extends('question2.home')
+@extends('topic2_component.home')
 @section('content')
 <div class="container" style="margin-top:30px">
   <div class="row">

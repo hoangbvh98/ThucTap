@@ -1,5 +1,5 @@
 
-@extends('question3.index')
+@extends('topic3_database.index')
 @section('content')
 <div class="container" style="margin-top:30px">
     
@@ -7,7 +7,7 @@
         
     @else
         <div class="editor">
-            @include('question3.layouts.editor')
+            @include('topic3_database.layouts.editor')
         </div>
     @endguest
     <h2>Danh sách bản tin</h2>

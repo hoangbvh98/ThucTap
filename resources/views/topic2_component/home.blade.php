@@ -19,11 +19,11 @@
 <body>
 
 
-@include('question2.layouts.header')
-@include('question2.layouts.navbar')
+@include('topic2_component.layouts.header')
+@include('topic2_component.layouts.navbar')
 
 @yield('content')
-@include('question2.layouts.footer')
+@include('topic2_component.layouts.footer')
 
 </body>
 </html>

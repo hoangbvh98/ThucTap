@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
+
+    /**
+     * Hàm lấy thông tin tất cả bài post và hiển thị lên màn hình trang chủ route('/posts')
+     *
+     * @return void
+     */
     public function index()
     {
         $allPosts = DB::table('posts')
@@ -19,6 +25,12 @@ class PostsController extends Controller
                     ->get();
         return view('topic3_database.pages.main', compact('allPosts'));
     }
+    /**
+     * hàm lấy thông tin chi tiết 1 bài post và hiển thị vào view detail
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function getDetailPost($id)
     {
         $post = Post::find($id);
@@ -30,6 +42,13 @@ class PostsController extends Controller
         $post = Post::find($id);
         return view('topic3_database.pages.edit_post', compact('post'));
     }
+
+    /**
+     * Hàm xóa bài post , có session gửi message
+     *
+     * @param [type] $id
+     * @return Message
+     */
     public function deletePost($id)
     {
         $post = Post::find($id);
@@ -41,6 +60,12 @@ class PostsController extends Controller
             return redirect()->back()->with('error', "Delete Fail");
         }
     }
+
+    /**
+     * Hàm lấy tất cả bài viết của user đang đăng nhập(các chức năng sửa xóa nằm trong view này)
+     *
+     * @return void
+     */
     public function getPostsByMe()
     {
         $allPosts = DB::table('posts')
@@ -50,6 +75,13 @@ class PostsController extends Controller
                     ->get();
         return view('topic3_database.pages.posts_by_me', compact('allPosts'));
     }
+
+    /**
+     * Hàm insert 1 post
+     *
+     * @param Request $request
+     * @return Message
+     */
     public function createPost(Request $request)
     {
         $request->validate([
@@ -68,6 +100,12 @@ class PostsController extends Controller
         }
     }
     
+    /**
+     * Update Post
+     *
+     * @param Request $request
+     * @return void
+     */
     public function editPost(Request $request)
     {
         $request->validate([
@@ -85,6 +123,13 @@ class PostsController extends Controller
             return redirect()->back()->with('error', "update Fail");
         }
     }
+
+    /**
+     * Hàm lấy ảnh đầu tiên trong nội dung bài viết để đưa ra hiển thị ngoài màn hình danh sách post
+     *
+     * @param [type] $content
+     * @return void
+     */
     private function getImageLink($content){
         $pattern = "#(?:http|https)\:.*?(?:png|jpg)#";
         preg_match($pattern,$content,$matches);
